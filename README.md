@@ -65,13 +65,3 @@ Le projet supporte de nombreuses chaînes, notamment :
 ## ⚠️ Note
 
 Ce projet utilise le réseau de test **Datil** de Lit Protocol. Pour une utilisation en production, configurez le réseau approprié dans `config/lit.ts`.
-
-## Contact
-
-Pour toute question ou suggestion, n'hésitez pas à ouvrir une **issue** sur le repository ou à me contacter directement !
-
-```
-
-contact@lorcannrauzduel.fr
-
-```
