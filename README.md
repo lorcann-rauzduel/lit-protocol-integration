@@ -11,7 +11,7 @@ Ce projet est une démonstration d'intégration du protocole Lit, un réseau dé
 
 ---
 
-## 🛠️ Technologies Utilisées
+## 🛠️ Technologies utilisées
 
 - **TypeScript**
 - **ethers.js**
@@ -32,8 +32,6 @@ cp .env.example .env
 # Lancer les tests
 pnpm test
 ```
-
-````
 
 ---
 
@@ -102,4 +100,7 @@ Ce projet utilise le réseau de test **Datil** de Lit Protocol. Pour une utilisa
 ## 📧 Contact
 
 Pour toute question ou suggestion, n'hésitez pas à ouvrir une **issue** sur le repository.
-````
+
+```
+
+```
