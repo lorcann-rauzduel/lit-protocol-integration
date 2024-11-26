@@ -45,6 +45,7 @@ const encrypted = await encrypt(litClient, "Message secret", conditions);
 
 // Déchiffrer le message
 const decrypted = await decrypt(litClient, encrypted, "ethereum", wallet);
+```
 
 ## Exemples de conditions supportées
 
@@ -84,6 +85,8 @@ Pour toute question ou suggestion, n'hésitez pas à ouvrir une **issue** sur le
 ```
 
 contact@lorcannrauzduel.fr
+
+```
 
 ```
 
