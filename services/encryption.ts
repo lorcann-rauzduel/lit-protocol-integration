@@ -44,10 +44,8 @@ export const decrypt = async (
     throw new Error("LitNodeClient not initialized");
   }
 
-  // Get the latest blockhash
   const latestBlockhash = await litClient.getLatestBlockhash();
 
-  // Define the authNeededCallback function
   const authNeededCallback = async (params: any) => {
     if (!params.uri) {
       throw new Error("uri is required");
@@ -60,7 +58,6 @@ export const decrypt = async (
       throw new Error("resourceAbilityRequests is required");
     }
 
-    // Create the SIWE message
     const toSign = await createSiweMessageWithRecaps({
       uri: params.uri,
       expiration: params.expiration,
@@ -70,7 +67,6 @@ export const decrypt = async (
       litNodeClient: litClient,
     });
 
-    // Generate the authSig
     const authSig = await generateAuthSig({
       signer: wallet,
       toSign,
@@ -79,12 +75,10 @@ export const decrypt = async (
     return authSig;
   };
 
-  // Define the Lit resource
   const litResource = new LitAccessControlConditionResource("*");
 
-  // Get the session signatures
   const sessionSigs = await litClient.getSessionSigs({
-    chain: "ethereum",
+    chain,
     resourceAbilityRequests: [
       {
         resource: litResource,
@@ -98,7 +92,7 @@ export const decrypt = async (
     {
       ...encryptedData,
       sessionSigs,
-      chain: "ethereum",
+      chain,
     },
     litClient
   );
