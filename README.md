@@ -37,25 +37,8 @@ pnpm test
 // Initialiser le client Lit
 const litClient = await initializeLitClient();
 
-// Exemple 1 : Condition de solde ETH minimum
+// Exemple : Condition d'un solde minimum en ETH
 const balanceConditions = createBalanceConditions("ethereum", "0.006");
-
-// Exemple 2 : Condition personnalisée off-chain (données externes)
-// Cette condition vérifie la température via une API météo
-// Le message ne pourra être déchiffré que si la température est inférieure à 20°C
-const weatherConditions = createGenericCondition({
-  chain: "ethereum",
-  // Cette adresse IPFS contient le code JavaScript qui :
-  // 1. Appelle l'API météo
-  // 2. Récupère la température actuelle
-  // 3. Retourne true si temp < 20°C, false sinon
-  contractAddress: "ipfs://QmcgbVu2sJSPpTeFhBd174FnmYmoVYvUFJeDkS7eYtwoFY",
-  standardContractType: "LitAction", // Indique que c'est une Lit Action
-  method: "go", // Nom de la fonction à exécuter dans le code IPFS
-  parameters: ["20"], // Température maximale autorisée
-  comparator: "=",
-  value: "true" // La condition est validée si la fonction retourne "true"
-});
 
 // Chiffrer un message
 const encrypted = await encrypt(litClient, "Message secret", conditions);
@@ -65,15 +48,15 @@ const decrypted = await decrypt(litClient, encrypted, "ethereum", wallet);
 
 ## Exemples de conditions supportées
 
-Lit Protocol permet d'utiliser des conditions d'accès basées sur des données on-chain et off-chain. Les conditions peuvent être combinées de manière flexible pour créer des règles d'accès complexes et personnalisées.
+Lit Protocol permet d'utiliser des conditions d'accès basées sur des données on-chain et off-chain. Les conditions peuvent être combinées pour créer des règles d'accès complexes et personnalisées.
 
-- **Solde ETH** - Vérification du solde minimum en ETH sur une chaîne spécifique
+- **JWT** - Vérification d'un JWT
+- **Solde ETH ou ERC20** - Vérification du solde minimum en ETH ou ERC20 sur une chaîne spécifique
 - **NFTs (ERC-721)** - Possession d'un NFT
-- **Tokens ERC20** - Détention d'un montant minimum de tokens ERC20
 - **DAO** - Appartenance à une DAO
 - **Smart contracts** - Résultat de n'importe quel appel de smart contract
-- **APIs externes** - Intégration de données hors chaîne via des appels API (ex: suivi Twitter)
-- _[Voir la documentation de Lit Protocol pour plus de détails](https://developer.litprotocol.com/sdk/access-control/evm/basic-examples)
+- **APIs externes** - Intégration de données off-chain via des appels API
+- [_Voir la documentation de Lit Protocol pour plus de détails_](https://developer.litprotocol.com/sdk/access-control/evm/basic-examples)
 
 ## Chaînes supportées
 

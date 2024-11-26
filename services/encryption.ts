@@ -1,3 +1,4 @@
+import { Chain, EncryptedData } from "@/types";
 import {
   createSiweMessageWithRecaps,
   generateAuthSig,
@@ -8,7 +9,6 @@ import { decryptToString, encryptString } from "@lit-protocol/encryption";
 import { LitNodeClientNodeJs } from "@lit-protocol/lit-node-client";
 import { AccessControlConditions } from "@lit-protocol/types";
 import { Wallet } from "ethers";
-import { Chain, EncryptedData } from "@/types";
 
 export const encrypt = async (
   litClient: LitNodeClientNodeJs,
@@ -43,9 +43,25 @@ export const decrypt = async (
   if (!litClient) {
     throw new Error("LitNodeClient not initialized");
   }
+
+  // Get the latest blockhash
   const latestBlockhash = await litClient.getLatestBlockhash();
-  const authNeededCallback = async (params: any): Promise<any> => {
-    const siweMessage = await createSiweMessageWithRecaps({
+
+  // Define the authNeededCallback function
+  const authNeededCallback = async (params: any) => {
+    if (!params.uri) {
+      throw new Error("uri is required");
+    }
+    if (!params.expiration) {
+      throw new Error("expiration is required");
+    }
+
+    if (!params.resourceAbilityRequests) {
+      throw new Error("resourceAbilityRequests is required");
+    }
+
+    // Create the SIWE message
+    const toSign = await createSiweMessageWithRecaps({
       uri: params.uri,
       expiration: params.expiration,
       resources: params.resourceAbilityRequests,
@@ -54,15 +70,21 @@ export const decrypt = async (
       litNodeClient: litClient,
     });
 
-    return await generateAuthSig({
+    // Generate the authSig
+    const authSig = await generateAuthSig({
       signer: wallet,
-      toSign: siweMessage,
+      toSign,
     });
+
+    return authSig;
   };
 
+  // Define the Lit resource
   const litResource = new LitAccessControlConditionResource("*");
+
+  // Get the session signatures
   const sessionSigs = await litClient.getSessionSigs({
-    chain,
+    chain: "ethereum",
     resourceAbilityRequests: [
       {
         resource: litResource,
@@ -76,7 +98,7 @@ export const decrypt = async (
     {
       ...encryptedData,
       sessionSigs,
-      chain,
+      chain: "ethereum",
     },
     litClient
   );
