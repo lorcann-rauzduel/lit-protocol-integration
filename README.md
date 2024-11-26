@@ -87,7 +87,3 @@ Pour toute question ou suggestion, n'hésitez pas à ouvrir une **issue** sur le
 contact@lorcannrauzduel.fr
 
 ```
-
-```
-
-```
