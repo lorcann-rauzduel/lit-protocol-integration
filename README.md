@@ -14,9 +14,9 @@ Ce projet est une démonstration d'intégration du protocole Lit, un réseau dé
 ## 🛠️ Technologies utilisées
 
 - **TypeScript**
-- **ethers.js**
-- **Lit Protocol SDK** (`@lit-protocol/`)
 - **Node.js**
+- **ethers.js**
+- **Lit Protocol SDK** (`@lit-protocol`)
 
 ---
 
@@ -55,13 +55,6 @@ const decrypted = await decrypt(litClient, encrypted, "ethereum", wallet);
 
 ---
 
-## 📚 Structure du projet
-
-- **config/** : Fichiers de configuration
-- **README.md** : Documentation du projet
-
----
-
 ## 🔑 Types de conditions supportées
 
 1. **Solde ETH**
@@ -83,11 +76,9 @@ Le projet supporte de nombreuses chaînes, notamment :
 
 ---
 
-## 🔗 Liens utiles
+## 🔗 Ressources utiles
 
 - [Documentation Lit Protocol](https://litprotocol.com/docs)
-- [GitHub Lit Protocol](https://github.com/LIT-Protocol)
-- [Discord Lit Protocol](https://discord.gg/litprotocol)
 
 ---
 
@@ -99,8 +90,8 @@ Ce projet utilise le réseau de test **Datil** de Lit Protocol. Pour une utilisa
 
 ## 📧 Contact
 
-Pour toute question ou suggestion, n'hésitez pas à ouvrir une **issue** sur le repository.
+Pour toute question ou suggestion, n'hésitez pas à ouvrir une **issue** sur le repository ou à me contacter directement !
 
 ```
-
+contact@lorcannrauzduel.fr
 ```
