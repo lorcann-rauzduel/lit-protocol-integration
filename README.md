@@ -2,18 +2,11 @@
 
 ## Description
 
-Ce projet est une démonstration d'intégration du protocole Lit, un réseau décentralisé de sécurité et d'identité. Il permet de :
-
-- Chiffrer des messages avec des conditions d'accès personnalisées
-- Déchiffrer des messages en vérifiant les conditions d'accès
-- Gérer différents types de conditions (solde ETH, NFT, tokens)
-- Interagir avec plusieurs chaînes de blocs
+Ce projet est une démonstration d'intégration du protocole Lit, un réseau décentralisé de sécurité et d'identité.
 
 ## Technologies utilisées
 
-- **TypeScript**
 - **Node.js**
-- **ethers.js**
 - **Lit Protocol SDK** (`@lit-protocol`)
 
 ## Installation
