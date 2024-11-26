@@ -37,21 +37,43 @@ pnpm test
 // Initialiser le client Lit
 const litClient = await initializeLitClient();
 
-// Créer des conditions d'accès en spécifiant la chaîne (exemple avec un solde en ETH minimum)
-const conditions = createBalanceConditions("ethereum", "0.006");
+// Exemple 1 : Condition de solde ETH minimum
+const balanceConditions = createBalanceConditions("ethereum", "0.006");
+
+// Exemple 2 : Condition personnalisée off-chain (données externes)
+// Cette condition vérifie la température via une API météo
+// Le message ne pourra être déchiffré que si la température est inférieure à 20°C
+const weatherConditions = createGenericCondition({
+  chain: "ethereum",
+  // Cette adresse IPFS contient le code JavaScript qui :
+  // 1. Appelle l'API météo
+  // 2. Récupère la température actuelle
+  // 3. Retourne true si temp < 20°C, false sinon
+  contractAddress: ["ipfs://QmcgbVu2sJSPpTeFhBd174FnmYmoVYvUFJeDkS7eYtwoFY"](https://ipfs.io/ipfs/QmcgbVu2sJSPpTeFhBd174FnmYmoVYvUFJeDkS7eYtwoFY),
+  standardContractType: "LitAction", // Indique que c'est une action Lit personnalisée
+  method: "go", // Nom de la fonction à exécuter dans le code IPFS
+  parameters: ["20"], // Température maximale autorisée
+  comparator: "=",
+  value: "true" // La condition est validée si la fonction retourne "true"
+});
 
 // Chiffrer un message
 const encrypted = await encrypt(litClient, "Message secret", conditions);
 
 // Déchiffrer le message
 const decrypted = await decrypt(litClient, encrypted, "ethereum", wallet);
-```
 
-## Types de conditions supportées
+## Exemples de conditions supportées
 
-1. **Solde ETH**
-2. **NFTs**
-3. **Tokens ERC20**
+Lit Protocol permet d'utiliser des conditions d'accès basées sur des données on-chain et off-chain. Les conditions peuvent être combinées de manière flexible pour créer des règles d'accès complexes et personnalisées.
+
+- **Solde ETH** - Vérification du solde minimum en ETH sur une chaîne spécifique
+- **NFTs (ERC-721)** - Possession d'un NFT
+- **Tokens ERC20** - Détention d'un montant minimum de tokens ERC20
+- **DAO** - Appartenance à une DAO
+- **Smart contracts** - Résultat de n'importe quel appel de smart contract
+- **APIs externes** - Intégration de données hors chaîne via des appels API (ex: suivi Twitter)
+- _[Voir la documentation de Lit Protocol pour plus de détails](https://developer.litprotocol.com/sdk/access-control/evm/basic-examples)
 
 ## Chaînes supportées
 
@@ -66,7 +88,7 @@ Le projet supporte de nombreuses chaînes, notamment :
 
 ## Ressources utiles
 
-- [Documentation Lit Protocol](https://litprotocol.com/docs)
+- [Documentation Lit Protocol](https://developer.litprotocol.com/)
 
 ## ⚠️ Note
 
@@ -77,5 +99,9 @@ Ce projet utilise le réseau de test **Datil** de Lit Protocol. Pour une utilisa
 Pour toute question ou suggestion, n'hésitez pas à ouvrir une **issue** sur le repository ou à me contacter directement !
 
 ```
+
 contact@lorcannrauzduel.fr
+
+```
+
 ```
