@@ -4,11 +4,6 @@
 
 Ce projet est une démonstration d'intégration du protocole Lit, un réseau décentralisé de sécurité et d'identité.
 
-## Technologies utilisées
-
-- **Node.js**
-- **Lit Protocol SDK** (`@lit-protocol`)
-
 ## Installation
 
 ```bash
