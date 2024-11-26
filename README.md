@@ -1,6 +1,6 @@
-# 🔐 Lit Protocol Integration
+# Lit Protocol Integration
 
-## 📝 Description
+## Description
 
 Ce projet est une démonstration d'intégration du protocole Lit, un réseau décentralisé de sécurité et d'identité. Il permet de :
 
@@ -9,14 +9,14 @@ Ce projet est une démonstration d'intégration du protocole Lit, un réseau dé
 - Gérer différents types de conditions (solde ETH, NFT, tokens)
 - Interagir avec plusieurs chaînes de blocs
 
-## 🛠️ Technologies utilisées
+## Technologies utilisées
 
 - **TypeScript**
 - **Node.js**
 - **ethers.js**
 - **Lit Protocol SDK** (`@lit-protocol`)
 
-## 📦 Installation
+## Installation
 
 ```bash
 # Installer les dépendances
@@ -29,7 +29,7 @@ cp .env.example .env
 pnpm test
 ```
 
-## 🚀 Utilisation
+## Utilisation
 
 ### Exemple de code TypeScript :
 
@@ -47,13 +47,13 @@ const encrypted = await encrypt(litClient, "Message secret", conditions);
 const decrypted = await decrypt(litClient, encrypted, "ethereum", wallet);
 ```
 
-## 🔑 Types de conditions supportées
+## Types de conditions supportées
 
 1. **Solde ETH**
 2. **NFTs**
 3. **Tokens ERC20**
 
-## ⛓️ Chaînes supportées
+## Chaînes supportées
 
 Le projet supporte de nombreuses chaînes, notamment :
 
@@ -64,7 +64,7 @@ Le projet supporte de nombreuses chaînes, notamment :
 - Base
 - _Et bien d'autres_
 
-## 🔗 Ressources utiles
+## Ressources utiles
 
 - [Documentation Lit Protocol](https://litprotocol.com/docs)
 
@@ -72,7 +72,7 @@ Le projet supporte de nombreuses chaînes, notamment :
 
 Ce projet utilise le réseau de test **Datil** de Lit Protocol. Pour une utilisation en production, configurez le réseau approprié dans `config/lit.ts`.
 
-## 📧 Contact
+## Contact
 
 Pour toute question ou suggestion, n'hésitez pas à ouvrir une **issue** sur le repository ou à me contacter directement !
 
