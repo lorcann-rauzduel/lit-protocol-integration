@@ -49,8 +49,8 @@ const weatherConditions = createGenericCondition({
   // 1. Appelle l'API météo
   // 2. Récupère la température actuelle
   // 3. Retourne true si temp < 20°C, false sinon
-  contractAddress: ["ipfs://QmcgbVu2sJSPpTeFhBd174FnmYmoVYvUFJeDkS7eYtwoFY"](https://ipfs.io/ipfs/QmcgbVu2sJSPpTeFhBd174FnmYmoVYvUFJeDkS7eYtwoFY),
-  standardContractType: "LitAction", // Indique que c'est une action Lit personnalisée
+  contractAddress: "ipfs://QmcgbVu2sJSPpTeFhBd174FnmYmoVYvUFJeDkS7eYtwoFY",
+  standardContractType: "LitAction", // Indique que c'est une Lit Action
   method: "go", // Nom de la fonction à exécuter dans le code IPFS
   parameters: ["20"], // Température maximale autorisée
   comparator: "=",
