@@ -40,7 +40,7 @@ const decrypted = await decrypt(litClient, encrypted, "ethereum", wallet);
 Lit Protocol permet d'utiliser des conditions d'accès basées sur des données on-chain et off-chain. Les conditions peuvent être combinées pour créer des règles d'accès complexes et personnalisées.
 
 - **JWT** - Vérification d'un JWT
-- **Solde ETH ou ERC20** - Vérification du solde minimum en ETH ou ERC20 sur une chaîne spécifique
+- **Solde ETH ou ERC20** - Vérification d'un solde minimum en ETH ou ERC20 sur une chaîne spécifique
 - **NFTs (ERC-721)** - Possession d'un NFT
 - **DAO** - Appartenance à une DAO
 - **Smart contracts** - Résultat de n'importe quel appel de smart contract
