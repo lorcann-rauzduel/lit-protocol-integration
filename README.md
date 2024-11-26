@@ -9,16 +9,12 @@ Ce projet est une démonstration d'intégration du protocole Lit, un réseau dé
 - Gérer différents types de conditions (solde ETH, NFT, tokens)
 - Interagir avec plusieurs chaînes de blocs
 
----
-
 ## 🛠️ Technologies utilisées
 
 - **TypeScript**
 - **Node.js**
 - **ethers.js**
 - **Lit Protocol SDK** (`@lit-protocol`)
-
----
 
 ## 📦 Installation
 
@@ -32,8 +28,6 @@ cp .env.example .env
 # Lancer les tests
 pnpm test
 ```
-
----
 
 ## 🚀 Utilisation
 
@@ -53,15 +47,11 @@ const encrypted = await encrypt(litClient, "Message secret", conditions);
 const decrypted = await decrypt(litClient, encrypted, "ethereum", wallet);
 ```
 
----
-
 ## 🔑 Types de conditions supportées
 
 1. **Solde ETH**
 2. **NFTs**
 3. **Tokens ERC20**
-
----
 
 ## ⛓️ Chaînes supportées
 
@@ -74,19 +64,13 @@ Le projet supporte de nombreuses chaînes, notamment :
 - Base
 - _Et bien d'autres_
 
----
-
 ## 🔗 Ressources utiles
 
 - [Documentation Lit Protocol](https://litprotocol.com/docs)
 
----
-
 ## ⚠️ Note
 
 Ce projet utilise le réseau de test **Datil** de Lit Protocol. Pour une utilisation en production, configurez le réseau approprié dans `config/lit.ts`.
-
----
 
 ## 📧 Contact
 
